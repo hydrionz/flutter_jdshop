@@ -11,25 +11,34 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        _swiperWidget(),
-      Text("data")
-      ],
+    return Container(
+      child: _swiperWidget(),
     );
   }
 }
 
 Widget _swiperWidget() {
-  return new Swiper(
+  List<Map> imageList = [
+    {"url": "https://www.itying.com/images/flutter/slide01.jpg"},
+    {"url": "https://www.itying.com/images/flutter/slide02.jpg"},
+    {"url": "https://www.itying.com/images/flutter/slide03.jpg"},
+  ];
+  var swiper = new Swiper(
     itemBuilder: (BuildContext context, int index) {
       return new Image.network(
-        "http://via.placeholder.com/350x150",
+        imageList[index]["url"],
         fit: BoxFit.fill,
       );
     },
-    itemCount: 3,
+    itemCount: imageList.length,
     pagination: new SwiperPagination(),
     control: new SwiperControl(),
+    autoplay: true,
+  );
+  return Container(
+    child: AspectRatio(
+      aspectRatio: 2 / 1,
+      child: swiper,
+    ),
   );
 }
