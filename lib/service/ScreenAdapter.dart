@@ -20,4 +20,14 @@ class ScreenAdapter {
   static double setFontSize(num n) {
     return ScreenUtil().setSp(n);
   }
+
+  ///当前设备宽度 dp
+  static double getScreenWidth() {
+    return ScreenUtil().screenWidth;
+  }
+
+  ///当前设备高度 dp
+  static double getScreenHeight() {
+    return ScreenUtil().screenHeight;
+  }
 }

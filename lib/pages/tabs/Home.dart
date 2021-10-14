@@ -22,6 +22,8 @@ class _HomePageState extends State<HomePage> {
           _guessLikeProductsWidget(),
           SizedBox(height: 10),
           _titleWidget("热门推荐"),
+          SizedBox(height: 10),
+          _hotRecomendProductsWidget(),
         ],
       ),
     );
@@ -102,5 +104,76 @@ Widget _guessLikeProductsWidget() {
             ],
           );
         }),
+  );
+}
+
+Widget _hotRecomendProductsWidget() {
+  return Container(
+    padding: EdgeInsets.only(left: ScreenAdapter.setWidth(10)),
+    child: Wrap(
+      spacing: ScreenAdapter.setWidth(10),
+      runSpacing: ScreenAdapter.setWidth(10),
+      children: [
+        _hotRecomendProductItemWidget(1),
+        _hotRecomendProductItemWidget(2),
+        _hotRecomendProductItemWidget(3),
+        _hotRecomendProductItemWidget(4),
+        _hotRecomendProductItemWidget(5),
+        _hotRecomendProductItemWidget(6),
+        _hotRecomendProductItemWidget(7),
+        _hotRecomendProductItemWidget(8),
+        _hotRecomendProductItemWidget(9),
+        _hotRecomendProductItemWidget(10),
+        _hotRecomendProductItemWidget(11),
+        _hotRecomendProductItemWidget(12),
+      ],
+    ),
+  );
+}
+
+Widget _hotRecomendProductItemWidget(int index) {
+  double width =
+      (ScreenAdapter.getScreenWidth() - ScreenAdapter.setWidth(30)) / 2;
+  return Container(
+    width: width,
+    child: Column(
+      children: [
+        Image.network("https://www.itying.com/images/flutter/list$index.jpg"),
+        Text(
+          "BindingBase.registerServiceExtension.<anonymous closure> (package:flutter/src/foundation/binding.dart:604:32)",
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
+          style: TextStyle(
+            fontSize: ScreenAdapter.setFontSize(24),
+            color: Colors.black87,
+          ),
+        ),
+        Container(
+          padding: EdgeInsets.all(ScreenAdapter.setWidth(5)),
+          child: Stack(
+            children: [
+              Align(
+                alignment: Alignment.bottomLeft,
+                child: Text(
+                  "￥188.00",
+                  style: TextStyle(
+                      color: Colors.black54,
+                      decoration: TextDecoration.lineThrough),
+                ),
+              ),
+              Align(
+                alignment: Alignment.bottomRight,
+                child: Text(
+                  "￥158.00",
+                  style: TextStyle(
+                      color: Colors.red,
+                      fontSize: ScreenAdapter.setFontSize(32)),
+                ),
+              ),
+            ],
+          ),
+        )
+      ],
+    ),
   );
 }
