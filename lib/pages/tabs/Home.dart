@@ -19,6 +19,8 @@ class _HomePageState extends State<HomePage> {
           SizedBox(height: 10),
           _titleWidget("猜你喜欢"),
           SizedBox(height: 10),
+          _guessLikeProductsWidget(),
+          SizedBox(height: 10),
           _titleWidget("热门推荐"),
         ],
       ),
@@ -26,6 +28,7 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
+///轮播图组件
 Widget _swiperWidget() {
   List<Map> imageList = [
     {"url": "https://www.itying.com/images/flutter/slide01.jpg"},
@@ -52,6 +55,7 @@ Widget _swiperWidget() {
   );
 }
 
+///首页标题组件
 Widget _titleWidget(String title) {
   return Container(
     height: ScreenAdapter.setHeight(34),
@@ -67,5 +71,36 @@ Widget _titleWidget(String title) {
       style: TextStyle(
           color: Colors.black54, fontSize: ScreenAdapter.setFontSize(26)),
     ),
+  );
+}
+
+///猜你喜欢图片列表组件
+Widget _guessLikeProductsWidget() {
+  return Container(
+    padding: EdgeInsets.only(left: ScreenAdapter.setWidth(20)),
+    height: ScreenAdapter.setHeight(170),
+    child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: 10,
+        itemBuilder: (context, index) {
+          return Column(
+            children: [
+              Container(
+                padding: EdgeInsets.only(right: ScreenAdapter.setWidth(20)),
+                height: ScreenAdapter.setHeight(140),
+                child: Image.network(
+                  "https://www.itying.com/images/flutter/hot${index + 1}.jpg",
+                  fit: BoxFit.cover,
+                ),
+              ),
+              Container(
+                  height: ScreenAdapter.setHeight(30),
+                  child: Text(
+                    "图片${index + 1}",
+                    style: TextStyle(fontSize: ScreenAdapter.setFontSize(20)),
+                  ))
+            ],
+          );
+        }),
   );
 }
