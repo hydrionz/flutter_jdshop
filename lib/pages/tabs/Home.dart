@@ -140,11 +140,11 @@ Widget _hotRecomendProductItemWidget(int index) {
       children: [
         Image.network("https://www.itying.com/images/flutter/list$index.jpg"),
         Text(
-          "BindingBase.registerServiceExtension.<anonymous closure> (package:flutter/src/foundation/binding.dart:604:32)",
+          "华为mate40pro 5G手机【支持鸿蒙HarmonyOs】 亮黑色 8+128G全网通（4G有充）",
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
           style: TextStyle(
-            fontSize: ScreenAdapter.setFontSize(24),
+            fontSize: ScreenAdapter.setFontSize(20),
             color: Colors.black87,
           ),
         ),
